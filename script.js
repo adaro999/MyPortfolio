@@ -1,21 +1,18 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', smoothScroll);
-    });
 
-    function smoothScroll(e) {
-        e.preventDefault();
 
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
+var tablinks = document.getElementsByClassName("tab-links");
+var tabcontents = document.getElementsByClassName("tab-contents");
 
-        window.scroll({
-            top: targetElement.offsetTop - 50,
-            left: 0,
-            behavior: 'smooth'
-        });
+function opentab(tabname){
+    for(const tablink of tablinks){
+        tablink.classList.remove("active-link")
     }
-});
+
+    for(const tabcontent of tabcontents){
+        tabcontent.classList.remove('active-tab')
+    }
+
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+}
+
